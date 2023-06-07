@@ -18,10 +18,20 @@
  *            <Promise constructor return code>
  *          }
  */
-
-export function parsePromised() {
+export function parsePromised(json) {
   // Your code goes here...
-}
+  const promise = new Promise((resolve, reject) => {
+    try {
+      const parsedJson = JSON.parse(json);
+      resolve(parsedJson);
+    } catch (err) {
+      reject(err)
+    }
+  });
+
+  return promise;
+  }
+
 
 /**
  * @task
@@ -30,27 +40,40 @@ export function parsePromised() {
  * * logs the message property of the error object
  */
 
-export function onReject() {
+export function onReject(error) {
   // Your code goes here...
+  console.log(error.message)
 }
 
 /**
  * @task
  * Create handlePromise() function that follows the steps::
- * * Takes a promise as an argument. The promise can either reject with a reason or resolves with a value
+ * * Takes a promise as an argument. The promise can either 
+ * * reject with a reason or resolves with a value
  * * The promise returns the promise value when resolved
  * * Catches the reason and follows the logic:
- * * * if the reason has a message property returns the onReject function call with the error passed as an argument if the promise rejects
+ * * * if the reason has a message property returns the onReject 
+ * *function call with the error passed as an argument if the promise rejects
  * * * else return the reason
  * The handlePromise() function must be exported
  * Example: export const promiseHandler = () => return <your code>
  */
 
-export const handlePromise = () => {
+export const handlePromise = (promise) => {
   // Your code goes here...
+  return promise
+    .then((value) => value)
+    .catch((reason) => {
+      if (reason.message) {
+        onReject(reason)
+      } else {
+        return reason;
+      }
+    })
 };
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-7"
 // If the test has all tests passed, switch to the next exercise file
 // If any of the tests fails, refactor the code and run the test command after you've fixed the function
+

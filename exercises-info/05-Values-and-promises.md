@@ -38,4 +38,4 @@ additional chaining.
    `attachTitle` then calls `console.log` and returns the value.
 
 If your program runs successfully, it should print out “DR. MANHATTAN” in the console
-and return thats value which is extremely exciting.
+and return that value which is extremely exciting.

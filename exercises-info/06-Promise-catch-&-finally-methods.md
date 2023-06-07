@@ -46,7 +46,7 @@ promise methods.
 
 This lets you avoid duplicating code in both the promise's then() and catch() handlers.
 
-An important difference if the .finally() method from .then() and .catch()
+An important difference of the .finally() method from .then() and .catch()
 is that it does NOT receive any argument. This method is used when you do NOT
 care about the rejection reason of the fulfillment value.
 

@@ -3,7 +3,8 @@
  * Please, make sure to read the "01 Promise-constructor.md" file in exercise-info folder before you start!
  * Create a promise with a constructor that follows the requirements:
  * * Is assigned to the getPromise exported constant
- * * The promise is resolved (fulfilled) with a message of 'The PROMISE was RESOLVED' in 1 second.
+ * * The promise is resolved (fulfilled) with a message of 
+ * *'The PROMISE was RESOLVED' in 1 second.
  * * (setTimeout function usage is required)
  * After the promise is settled do the following:
  * * Using .then() syntax with onFulfilled callback argument:
@@ -16,6 +17,19 @@
 
 // Your code goes here
 
+const fulfilled = (fulfill) => {
+    setTimeout(() => {
+        fulfill('The PROMISE was RESOLVED');
+    }, 1000);
+}
+const getPromise = new Promise(fulfilled);
+
+getPromise.then((value) => {
+    console.log(value);
+    return value;
+}) 
+
+export {getPromise}
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-1"
 // If the test has all tests passed, switch to the next exercise file

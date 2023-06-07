@@ -8,20 +8,29 @@
  *          export const Promise
  */
 
-export const attachTitle = () => {
+export const attachTitle = (lName) => {
   // Your code goes here...
+  return 'DR. ' + lName
 };
 
 /**
  * @task
  * Create a function that follows the requirements:
  * * Returns a fulfilled promise with a value of `'MANHATTAN'`.
- * * Build a promise chain off the promise we just constructed that first calls `attachTitle` then calls `console.log`.
- * If your program runs successfully, it should print out and return “DR. MANHATTAN” which is extremely exciting.
+ * * Build a promise chain off the promise we just constructed 
+ * *that first calls `attachTitle` then calls `console.log`.
+ * If your program runs successfully, it should print out and 
+ * *return “DR. MANHATTAN” which is extremely exciting.
  */
 
 export const getPromise = () => {
   // Your code goes here...
+  return new Promise((resolve) => {
+    resolve('MANHATTAN')
+  })
+    .then(attachTitle)
+    .then((result) => console.log(result))
+
 };
 
 // === TEST YOURSELF ===
